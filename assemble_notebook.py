@@ -44,7 +44,7 @@ def make_cell(cell_type, source, collapsed=False):
 # For "markdown" cells: source_or_filename is inline markdown text
 
 NOTEBOOK_STRUCTURE = [
-    ("markdown", """# 🤖 Coding Agent Avanzado — Kotlin / Spring Boot
+    ("markdown", """# Coding Agent Avanzado
 
 **TP Final - Inteligencia Artificial**
 
@@ -59,83 +59,83 @@ Sistema multi-agente para análisis, corrección y mejora de proyectos Kotlin/Sp
 - **Reviewer**: Revisa cambios y valida calidad
 
 ### Características
-- 🔍 RAG sobre documentación Kotlin/Spring Boot (ChromaDB + OpenAI Embeddings)
-- 💾 Memoria persistente por proyecto (JSON)
-- 🔒 Políticas de seguridad configurables (YAML)
-- 📊 Observabilidad con Langfuse
-- 🔄 Detección de loops y gestión de contexto
-- 🔌 Sistema de registro de herramientas (plugin-style)
+- RAG sobre documentación Kotlin/Spring Boot (ChromaDB + OpenAI Embeddings)
+- Memoria persistente por proyecto (JSON)
+- Políticas de seguridad configurables (YAML)
+- Observabilidad con Langfuse
+- Detección de loops y gestión de contexto
+- Sistema de registro de herramientas (plugin-style)
 """),
 
-    ("markdown", "### 📦 Instalación de dependencias"),
+    ("markdown", "#### Instalación de dependencias"),
     ("code", "01_setup.py"),
 
-    ("markdown", "### ⚙️ Configuración del cliente y políticas del agente"),
+    ("markdown", "#### Create OpenAI Client y Configuración de políticas"),
     ("code", "02_config.py"),
 
-    ("markdown", "### 📊 Observabilidad con Langfuse"),
+    ("markdown", "#### Observabilidad con Langfuse"),
     ("code", "03_observability.py"),
 
-    ("markdown", "### 📋 Estado compartido de tarea (TaskState)"),
+    ("markdown", "#### Estado compartido de tarea (TaskState)"),
     ("code", "04_state.py"),
 
-    ("markdown", "### 💾 Memoria persistente del proyecto"),
+    ("markdown", "#### Memoria persistente del proyecto"),
     ("code", "05_memory.py"),
 
-    ("markdown", """### 🔍 Motor RAG (Retrieval-Augmented Generation)
+    ("markdown", """#### Motor RAG (Retrieval-Augmented Generation)
 
 Sistema de búsqueda semántica sobre documentación técnica de Kotlin y Spring Boot.
-- **Chunking**: Fragmentos de 500 caracteres con 50 de overlap
-- **Embeddings**: OpenAI `text-embedding-3-small`
-- **Vector Store**: ChromaDB (persistente en disco)
+- Chunking: Fragmentos de 500 caracteres con 50 de overlap
+- Embeddings: OpenAI `text-embedding-3-small`
+- Vector Store: ChromaDB (persistente en disco)
 """),
     ("code", "06_rag.py"),
 
-    ("markdown", """### 🔧 Sistema de Herramientas (Tools)
+    ("markdown", """#### Esquema JSON y Tools de sistema para gestión de archivos, ejecución de comandos y búsqueda web
 
 Registro de herramientas con validación de políticas de seguridad.
 Cada herramienta se registra con su esquema OpenAI, función de ejecución y tipo de permiso.
 """),
     ("code", "07_tools.py"),
 
-    ("markdown", """### 🧠 Gestión de contexto y detección de loops
+    ("markdown", """#### Gestión de contexto y detección de loops
 
-- **ContextManager**: Resume conversaciones largas para no exceder la ventana de contexto
-- **LoopDetector**: Detecta acciones repetidas sin progreso y fuerza cambio de estrategia
+- ContextManager: Resume conversaciones largas para no exceder la ventana de contexto
+- LoopDetector: Detecta acciones repetidas sin progreso y fuerza cambio de estrategia
 """),
     ("code", "08_context.py"),
 
-    ("markdown", """### 🤖 Motor de Subagentes
+    ("markdown", """#### Motor de Subagentes
 
 5 subagentes especializados, cada uno con su propio prompt, herramientas permitidas y ciclo de ejecución.
 """),
     ("code", "09_subagents.py"),
 
-    ("markdown", """### 🎯 Agente Principal (Orquestador)
+    ("markdown", """#### Lógica de control, moderación de seguridad y planificación (Orquestador)
 
-Coordina el flujo de trabajo con **routing no lineal**:
+Coordina el flujo de trabajo con routing no lineal:
 - Explorer → Researcher → Implementer ↔ Tester (loop de reintentos) → Reviewer
 - Detecta cuando un subagente está bloqueado y cambia de estrategia
 - Genera reportes finales con atribución de fuentes
 """),
     ("code", "10_orchestrator.py"),
 
-    ("markdown", """### 📚 Ingesta de documentación para RAG
+    ("markdown", """#### Ingesta de documentación para RAG
 
 Carga documentación de Kotlin, Spring Boot, Gradle y patrones comunes en el vector store.
 """),
     ("code", "11_ingestion.py"),
 
-    ("markdown", """### 🏗️ Proyecto de demostración (Kotlin/Spring Boot)
+    ("markdown", """#### Inicialización automática de la estructura del proyecto demo
 
 Crea un proyecto Spring Boot con Kotlin que contiene bugs intencionales:
-1. **Bug 1**: Uso inseguro de `!!` (non-null assertion) → `NullPointerException`
-2. **Bug 2**: `ResponseEntity.ok()` en vez de `ResponseEntity.created()` (HTTP 201)
-3. **Bug 3**: Sin validación de input (títulos vacíos permitidos)
+1. Bug 1: Uso inseguro de `!!` (non-null assertion) → `NullPointerException`
+2. Bug 2: `ResponseEntity.ok()` en vez de `ResponseEntity.created()` (HTTP 201)
+3. Bug 3: Sin validación de input (títulos vacíos permitidos)
 """),
     ("code", "12_demo.py"),
 
-    ("markdown", """### ▶️ Ejecutar Agente
+    ("markdown", """#### Correr agent
 
 Ejecutar esta celda para iniciar el agente interactivo.
 
