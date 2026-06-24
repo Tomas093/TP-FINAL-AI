@@ -1,0 +1,29 @@
+workspace: ./workspace/demo-spring-app
+model: gpt-5-nano
+ecosystem: kotlin-springboot
+permissions:
+  read:
+    deny:
+      - ".env"
+      - "**/*.pem"
+      - "secrets/**"
+      - "**/.git/**"
+  write:
+    deny:
+      - ".github/**"
+      - "gradle.lockfile"
+      - "**/gradlew"
+      - "**/gradlew.bat"
+      - "**/gradle/wrapper/**"
+  commands:
+    deny:
+      - "rm -rf"
+      - "git push"
+      - "git push --force"
+      - "shutdown"
+      - "reboot"
+    require_approval:
+      - "gradle bootRun"
+      - "git commit"
+      - "pip install"
+max_iterations: 25
