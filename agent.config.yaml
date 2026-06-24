@@ -1,6 +1,8 @@
 workspace: ./workspace/demo-spring-app
 model: gpt-5-nano
-ecosystem: kotlin-springboot
+ecosystem:
+  language: kotlin
+  framework: springboot
 permissions:
   read:
     deny:
