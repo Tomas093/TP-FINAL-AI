@@ -14,8 +14,8 @@ permissions:
     deny:
       - ".github/**"
       - "gradle.lockfile"
-      - "**/gradlew"
-      - "**/gradlew.bat"
+      - "*gradlew"
+      - "*gradlew.bat"
       - "**/gradle/wrapper/**"
   commands:
     deny:
